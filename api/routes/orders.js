@@ -5,7 +5,7 @@ const Product = require('./../../models/products');
 const router = express.Router();
 
 router.get('/', (req,res,next) => {
-  Order.find()
+  Order.find().populate('productID', 'name price')
     .select('_id productID qty')
       .exec()
         .then((result) => {
@@ -60,23 +60,59 @@ router.post('/', (req,res,next) => {
 
 router.get('/:id', (req,res,next) => {
   const id = req.params.id;
-  res.status(200).json({
-    message: `this is order ${id}`
-  });
+  if(mongoose.Types.ObjectId.isValid(id)){
+    Order.findById({_id:id})
+      .populate()
+        .select('_id productID qty')
+          .exec()
+            .then((result) => {
+              res.status(200).send({
+                orders: result,
+                request: {
+                  type: 'GET',
+                  url: `localhost:3000/orders`
+                }
+              });
+            })
+              .catch((err) => {
+                res.status(500).json({err});
+              });
+  }else{
+    res.send(401).json({
+      error: 'Please input a valid order ID'
+    });
+  }
 });
 
-router.put('/:id', (req,res,next) => {
+router.patch('/:id', (req,res,next) => {
   const id = req.params.id;
-  res.status(200).json({
-    message: `you updated order ${id}`
+  const order = new Order({
+    _id: id,
+    productID: req.body.productID,
+    qty: req.body.qty
   });
+  Order.update({_id: id}, order)
+    .exec()
+      .then((result) => {
+        res.status(201).send({
+          order: result,
+          request: {
+            type: 'GET',
+            url: `localhost:3000/orders/${id}`
+          }
+        });
+      })
+        .catch(err => res.send(err));
 });
 
 router.delete('/:id', (req,res,next) => {
   const id = req.params.id;
-  res.status(200).json({
-    message: `you deleted order ${id}`
-  });
+  Order.remove({_id: id})
+    .exec()
+      .then((result) => {
+        res.send(result);
+      })
+        .catch(err => res.send(err));
 });
 
 module.exports = router;
