@@ -26,7 +26,7 @@ app.use('/orders', orderRoute);
 app.use((req,res,next) => {
   const error = new Error('NOT FOUND');
   error.status = 404;
-  next(error);
+  next(error); //parsing execution forward to avoid hanging
 });
 
 app.use((err,req,res,next) => {
