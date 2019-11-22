@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const multer = require('multer');
+const auth = require('./../../middleware/auth');
 
 const fileFilter = (req, file, cb) => {
   if(file.mimetype === 'image/jpeg' || file.mimetype === 'image/png' || file.mimetype === 'image/gif'){
@@ -54,7 +55,7 @@ router.get('/', (req,res,next) => {
         });
 });
 
-router.post('/', upload.single('prodImage'), (req,res,next) => {
+router.post('/', auth, upload.single('prodImage'), (req,res,next) => {
   console.log(req.file);
   const product = new Product({
     _id: new mongoose.Types.ObjectId(),
