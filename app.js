@@ -9,13 +9,15 @@ const app = express();
 const cors = require('cors');
 const path = require('path');
 
-mongoose.connect('mongodb://127.0.0.1:27017/products', { useNewUrlParser: true });
-const db = mongoose.connection;
+mongoose.connect(`mongodb+srv://vik:aB8HBuCbNtH1XMIC@rest-0wmlu.mongodb.net/test?retryWrites=true&w=majority`, { useNewUrlParser: true }).then(() => {
+  console.log('connected to the database')
+}).catch(err => console.log('could not connect to the database', err));
+// const db = mongoose.connection;
 
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', () => {
-  console.log('we are connected to mongoDB database');
-});
+// db.on('error', console.error.bind(console, 'connection error:'));
+// db.once('open', () => {
+//   console.log('we are connected to mongoDB database');
+// });
 
 app.use(cors());
 app.use(logger('dev'));
