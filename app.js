@@ -9,15 +9,11 @@ const app = express();
 const cors = require('cors');
 const path = require('path');
 
-mongoose.connect(`mongodb+srv://vik:vik@rest-0wmlu.mongodb.net/test?retryWrites=true&w=majority`, { useNewUrlParser: true }).then(() => {
+// mongodb://myUserName:MyPassword@ElasticIP:27017/databaseName?authSource=admin
+
+mongoose.connect(`mongodb+srv://vik:vik@rest-0wmlu.mongodb.net/test?authSource=admin?retryWrites=true&w=majority`, { useNewUrlParser: true }).then(() => {
   console.log('connected to the database')
 }).catch(err => console.log('could not connect to the database', err));
-// const db = mongoose.connection;
-
-// db.on('error', console.error.bind(console, 'connection error:'));
-// db.once('open', () => {
-//   console.log('we are connected to mongoDB database');
-// });
 
 app.use(cors());
 app.use(logger('dev'));
