@@ -9,7 +9,7 @@ const app = express();
 const cors = require('cors');
 const path = require('path');
 
-mongoose.connect(`mongodb+srv://vik:aB8HBuCbNtH1XMIC@rest-0wmlu.mongodb.net/test?retryWrites=true&w=majority`, { useNewUrlParser: true }).then(() => {
+mongoose.connect(`mongodb+srv://vik:vik@rest-0wmlu.mongodb.net/test?retryWrites=true&w=majority`, { useNewUrlParser: true }).then(() => {
   console.log('connected to the database')
 }).catch(err => console.log('could not connect to the database', err));
 // const db = mongoose.connection;
@@ -24,10 +24,17 @@ app.use(logger('dev'));
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '/uploads')));
+app.use(express.static(path.join('public')));
 
 app.use('/products', prodRoute);
 app.use('/orders', orderRoute);
 app.use('/api/users', userRoute);
+
+app.get('/', (req, res) => {
+  res.sendFile('index.html', () => {
+    console.log('sent');
+  });
+});
 
 app.use((req,res,next) => {
   const error = new Error('NOT FOUND');
