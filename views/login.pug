@@ -1,0 +1,106 @@
+doctype html
+html(lang='en')
+  //  Mirrored from crowd1.com/login by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 31 Aug 2020 21:36:34 GMT 
+  //  Added by HTTrack 
+  head
+    link(rel="icon" type="image/x-icon" href="/favicon.ico")
+    meta(http-equiv='content-type' content='text/html;charset=UTF-8')
+    //  /Added by HTTrack 
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width,initial-scale=1')
+    meta(http-equiv='X-UA-Compatible' content='ie=edge')
+    meta(name='theme-color' content='#141322')
+    title Crowd1
+    link(rel='stylesheet' href='/bootstrap.min.css')
+    link(rel='stylesheet' href='/grid.min.css')
+    link(rel='stylesheet' href='/login-register.css')
+    script.
+      
+      (function(h,o,t,j,a,r){
+      		    h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+      		    h._hjSettings={hjid:1743724,hjsv:6};
+      		    a=o.getElementsByTagName('head')[0];
+      		    r=o.createElement('script');r.async=1;
+      		    r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+      		    a.appendChild(r);
+      		})(window,document,'../static.hotjar.com/c/hotjar-.html','.js?sv=');
+      
+    script(type='text/javascript' src='../d2t77mnxyo7adj.cloudfront.net/v1/cf93c.js?727567311123134')
+  body
+    header.log-reg-header
+      a(href='index.html')
+        img(src='/logo-crowd1.svg' width='221' height='29' alt='Crowd1')
+    .notice-wrapper
+      .container.
+        
+        
+    main.log-reg-wrapper
+      #epiclogin
+      .log-reg__inner
+        .log-reg__bg
+        .log-reg-content-wrapper
+          section.log-reg-content.log-reg-content--login
+            form.log-reg-form.log-reg-form--login#loginForm(action='/login' method='POST')
+              h2.tac Log In
+              p.tac
+                strong
+                  | Don’t have an account yet? 
+                  a.highlight--blue(href='signup.html') Register here
+              .form-group
+                .form-group--animate-label
+                  input#username.form-control--log-reg(type='text' name='email' autofocus)
+                  label(for='username') Username
+              .form-group
+                .form-group--animate-label
+                  input#password.form-control--log-reg(type='password' name='password')
+                  label(for='password') Password
+              #recaptchav2
+              #g-recaptcha2
+              .form-group--animate-label.mtg3x.tac
+                button.btn#loginbutton(type='submit') Login
+                p.tac.pt
+                  strong
+                    | Forgot your password? 
+                    a.highlight--blue(href='forgotpassword.html') Click here
+              script(src='../www.google.com/recaptcha/api694e.js?render=6LcGt74UAAAAAFo5eOmlT2UynS4v2A0mq8PtTCeP')
+              script.
+                
+                grecaptcha.ready(function() {
+                						  	grecaptcha.execute('6LcGt74UAAAAAFo5eOmlT2UynS4v2A0mq8PtTCeP', {action: 'login'}).then(function(token) {
+                									console.log(token);
+                									$("#recaptchatoken3").val(token);
+                								});
+                						  });
+                
+              input(type='hidden' name='wanted')
+              input#recaptchatoken3(type='hidden' name='recaptchatoken3')
+    script(src='../static.crowd1.com/static/assets/js/jquery.3.4.1.min.js')
+    script(src='../static.crowd1.com/static/assets/plugins/jquery-validation/jquery.validate.min7b12.js?v=1598361022')
+    script(src='../static.crowd1.com/static/assets/plugins/jquery-validation/additional-methods.min7b12.js?v=1598361022')
+    script(src='../static.crowd1.com/static/assets/plugins/taconite/jquery3.taconite7b12.js?v=1598361022')
+    script(src='../static.crowd1.com/static/assets/plugins/crowd1/notice7b12.js?v=1598361022')
+    script(src='../static.crowd1.com/static/assets/plugins/slick/slick.min7b12.js?v=1598361022')
+    script(src='../static.crowd1.com/static/assets/js/01.cookie-consent-util7b12.js?v=1598361022')
+    script(src='../static.crowd1.com/static/assets/js/02.1.cookie-consent-themes7b12.js?v=1598361022')
+    script(src='../static.crowd1.com/static/assets/js/02.2.cookie-consent-custom-css7b12.js?v=1598361022')
+    script(src='../static.crowd1.com/static/assets/js/02.3.cookie-consent-informational7b12.js?v=1598361022')
+    script(src='../static.crowd1.com/static/assets/js/02.4.cookie-consent-opt-out7b12.js?v=1598361022')
+    script(src='../static.crowd1.com/static/assets/js/02.5.cookie-consent-opt-in7b12.js?v=1598361022')
+    script(src='../static.crowd1.com/static/assets/js/02.6.cookie-consent-location7b12.js?v=1598361022')
+    script(src='../static.crowd1.com/static/assets/plugins/crowd1/notice7b12.js?v=1598361022')
+    script(type='text/javascript' src='../static.crowd1.com/static/assets/js/pages/page_login7b12.js?v=1598361022')
+    script(type='text/javascript').
+      
+      function googleTranslateElementInit() {
+      		  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL, gaTrack: true, gaId: 'UA-82255371-1'}, 'google_translate_element');
+      		}
+      
+    script(type='text/javascript' src='../translate.google.com/translate_a/elementa0d8.html?cb=googleTranslateElementInit')
+    script(type='text/javascript' src='../static.crowd1.com/static/assets/js/login-register.js')
+    script(type='text/javascript').
+      
+      _atrk_opts = { atrk_acct:"Sc2Pu1rcy520uW", domain:"crowd1.com",dynamic: true};
+      	(function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "../certify-js.alexametrics.com/atrk.js"; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();
+      
+    noscript <img src="../certify.alexametrics.com/atrk0a64.gif?account=Sc2Pu1rcy520uW" style="display:none" height="1" width="1" alt="">
+  //  Mirrored from crowd1.com/login by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 31 Aug 2020 21:37:02 GMT 
